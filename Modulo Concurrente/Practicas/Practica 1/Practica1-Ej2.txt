@@ -1,0 +1,36 @@
+programa ejemplo
+procesos
+  proceso limpiar(ES papeles:numero)
+  comenzar
+    papeles:=0
+    repetir 20
+      mientras(HayPapelEnLaEsquina)
+        tomarPapel
+      mover
+  fin
+areas
+  ciudad: AreaC(10,10,20,20)
+robots
+  robot robot1
+  variables
+    p:numero
+    r:numero
+  comenzar
+    limpiar(p,)
+    informar(p)
+  fin
+variables
+  r1: robot1
+  r2: robot1
+  r3: robot1
+  r4: robot1
+comenzar
+  AsignarArea(r1,ciudad)
+  AsignarArea(r2,ciudad)
+  AsignarArea(r3,ciudad)
+  AsignarArea(r4,ciudad)  
+  Iniciar(r1,10,10)
+  Iniciar(r2,20,10)
+  Iniciar(r3,20,20)
+  Iniciar(r4,10,20)
+fin

@@ -1,0 +1,53 @@
+programa ejemplo
+procesos
+  proceso juntarFlores
+  comenzar
+    repetir 99
+      mientras(HayFlorEnLaEsquina)
+        tomarFlor
+      mover
+  fin
+  proceso juntarPapeles
+  comenzar
+    repetir 99
+      mientras(HayPapelEnLaEsquina)
+        tomarPapel
+      mover
+  fin
+  proceso recolectar(E aven:numero; E call:numero; E n:numero)
+  comenzar
+    repetir 25
+      Pos(aven, call)
+      si(n = 1)
+        juntarFlores
+      sino
+        juntarPapeles
+      aven:=aven+1    
+  fin
+areas
+  area1: AreaP(1,1,25,100)
+  area2: AreaP(26,1,50,100)
+  area3: AreaP(51,1,75,100)
+  area4: AreaP(76,1,100,100)
+robots
+  robot recolectorFlores
+  comenzar
+    recolectar(1,1,1)
+    recolectar(51,1,1)
+  fin
+  robot recolectorPapeles
+  comenzar
+    recolectar(26,1,2)
+    recolectar(76,1,2)
+  fin
+variables
+  r1: recolectorFlores
+  r2: recolectorPapeles
+comenzar
+  AsignarArea(r1,area1)
+  AsignarArea(r2,area2)
+  AsignarArea(r1,area3)
+  AsignarArea(r2,area4)
+  Iniciar(r1,1,1)
+  Iniciar(r2,26,1)
+fin

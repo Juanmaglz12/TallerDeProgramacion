@@ -1,0 +1,50 @@
+programa ejemplo
+procesos
+  proceso recorrerYrecolectar(ES f:numero)
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      f:=f+1
+  fin
+  proceso recogerFlores(ES f:numero)
+  comenzar
+    f:=0
+    recorrerYrecolectar(f)
+    repetir 10
+      mover
+      recorrerYrecolectar(f)
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    f:numero
+  comenzar
+    recogerFlores(f)
+    EnviarMensaje(f,jefe)
+  fin
+  robot robotJefe
+  variables
+    floresR1:numero
+    floresR2:numero
+  comenzar
+    RecibirMensaje(floresR1,r1)
+    RecibirMensaje(floresR2,r2)
+    si(floresR1 > floresR2)
+      Informar(floresR1 - floresR2)
+    sino
+      Informar(floresR2 - floresR1)
+  fin
+variables
+  r1: robot1
+  r2: robot1
+  jefe: robotJefe
+comenzar
+  AsignarArea(r1,ciudad)
+  AsignarArea(r2,ciudad)
+  AsignarArea(jefe,ciudad)
+  Iniciar(r1,1,1)
+  Iniciar(r2,2,11)
+  Iniciar(jefe,2,1)
+fin

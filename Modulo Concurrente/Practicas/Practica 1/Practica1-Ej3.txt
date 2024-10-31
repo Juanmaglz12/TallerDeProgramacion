@@ -1,0 +1,59 @@
+programa ejemplo
+procesos
+  proceso contarPapelesYFlores(ES papeles:numero; ES flores:numero)
+  comenzar
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+      papeles:=papeles+1
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      flores:=flores+1
+    mientras(HayFlorEnLaBolsa)
+      depositarFlor
+    mientras(HayPapelEnLaBolsa)
+      depositarPapel
+  fin
+  proceso recorrerEscalon(E numEscalon:numero; ES cant:numero)
+  variables
+    flores:numero
+    papeles:numero
+  comenzar
+    repetir 4
+      cant:=0
+      flores:=0
+      papeles:=0
+      repetir numEscalon
+        contarPapelesYFlores(papeles,flores)
+        mover
+      derecha
+      repetir numEscalon
+        contarPapelesYFlores(papeles,flores)
+        mover
+      repetir 3
+        derecha
+      numEscalon:=numEscalon+1
+      si(papeles+1 = flores)
+        cant:=cant+1
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    c:numero
+  comenzar
+    recorrerEscalon(1,c)
+    Informar(c)
+  fin
+variables
+  r1: robot1
+  r2: robot1
+  r3: robot1
+comenzar
+  AsignarArea(r1,ciudad)
+  AsignarArea(r2,ciudad)
+  AsignarArea(r3,ciudad)
+  Iniciar(r1,14,12)
+  Iniciar(r2,10,17)
+  Iniciar(r3,6,22)
+fin
